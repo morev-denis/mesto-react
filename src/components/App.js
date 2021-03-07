@@ -1,39 +1,16 @@
-import logo from './images/header/__logo/header__logo.svg';
-// import './App.css';
+import Header from './Header.js';
+import Main from './Main.js';
+import Footer from './Footer.js';
+import logo from '../images/header/__logo/header__logo.svg';
+
 
 function App() {
   return (
     <div className="root">
       <div className="page">
-
-        <header className="header page__header">
-          <a className="header__link" href="./index.html" target="_self">
-            <img className="header__logo" src={logo} alt="Логотип Mesto Russia" />
-          </a>
-        </header>
-
-        <main className="content">
-          <section className="profile page__profile">
-            <div className="profile__avatar">
-              <img className="profile__avatar-img" src="#" alt="Аватар" />
-              <button className="profile__button profile__button_action_edit-avatar"></button>
-            </div>
-            <h1 className="profile__name">Жак-Ив Кусто</h1>
-            <button className="profile__button profile__button_action_edit" type="button"></button>
-            <p className="profile__job">Исследователь океана</p>
-            <button className="profile__button profile__button_action_add" type="button"></button>
-          </section>
-
-          <section className="elements page__elements">
-            <ul className="elements__grid">
-            </ul>
-          </section>
-        </main>
-
-        <footer className="footer page__footer">
-          <p className="footer__copyright">© 2020 Морев Денис</p>
-        </footer>
-
+        <Header src={logo} />
+        <Main />
+        <Footer />
       </div>
 
       <div className="popup popup_feat_profile-edit">
