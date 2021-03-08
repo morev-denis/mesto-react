@@ -1,11 +1,3 @@
 .root {
-  min-height: 100vh;
   background-color: #000;
-  padding-bottom: calc((100vw - 320px) / (1280 - 320) * (60 - 36) + 36px);
-}
-
-@media screen and (min-width: 1280px) {
-  .root {
-    padding-bottom: 60px;
-  }
 }
