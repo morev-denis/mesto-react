@@ -5,7 +5,7 @@ function Header(props) {
         <img className="header__logo" src={props.src} alt="Логотип Mesto Russia" />
       </a>
   </header>
-  )
+  );
 }
 
 export default Header;
