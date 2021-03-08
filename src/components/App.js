@@ -24,6 +24,12 @@ function App() {
     setIsAddPlacePopupOpen(true);
   }
 
+  function closeAllPopups() {
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+  }
+
   return (
     <div className="root">
       <div className="page">
@@ -32,7 +38,7 @@ function App() {
         <Footer />
       </div>
 
-      <PopupWithForm name="profile-edit" title="Редактировать профиль" buttonName="Сохранить" isOpen={isEditProfilePopupOpen}>
+      <PopupWithForm name="profile-edit" title="Редактировать профиль" buttonName="Сохранить" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
         <label className="popup__field">
           <input id="profile-edit-input-name" className="popup__input popup__input_field_name" type="text" placeholder="Имя" name="profileName" required minLength="2" maxLength="40" />
           <span className="profile-edit-input-name-error popup__input-error"></span>
@@ -43,14 +49,14 @@ function App() {
         </label>
       </PopupWithForm>
 
-      <PopupWithForm name="avatar-update" title="Обновить аватар" buttonName="Сохранить" isOpen={isEditAvatarPopupOpen}>
+      <PopupWithForm name="avatar-update" title="Обновить аватар" buttonName="Сохранить" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
         <label className="popup__field">
           <input id="avatar-update-input-link" className="popup__input popup__input_field_link" type="url" placeholder="Ссылка на картинку" name="avatar" required />
           <span className="avatar-update-input-link-error popup__input-error"></span>
         </label>
       </PopupWithForm>
 
-      <PopupWithForm name="card-add" title="Новое место" buttonName="Создать" isOpen={isAddPlacePopupOpen}>
+      <PopupWithForm name="card-add" title="Новое место" buttonName="Создать" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
         <label className="popup__field">
           <input id="card-add-input-name" className="popup__input popup__input_field_place" type="text" placeholder="Название" name="name" required minLength="2" maxLength="30" />
           <span className="card-add-input-name-error popup__input-error"></span>
