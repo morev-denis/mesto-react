@@ -6,6 +6,7 @@ function Main(props) {
   const [userName, setUserName] = React.useState('');
   const [userDescription, setUserDescription] = React.useState('');
   const [userAvatar, setUserAvatar] = React.useState('');
+  const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
     api.initData()
@@ -15,9 +16,8 @@ function Main(props) {
       setUserName(userInfo.name);
       setUserDescription(userInfo.about);
       setUserAvatar(userInfo.avatar);
-
+      setCards(initialCards);
       // ownerId = userInfo._id;
-      // cardSection.renderItems(initialCards.reverse());
     })
     .catch((err) => {
       console.log(err);
@@ -39,6 +39,21 @@ function Main(props) {
 
       <section className="elements page__elements">
         <ul className="elements__grid">
+          {cards.map((card) => (
+            <li className="element" key={card._id}>
+              <figure className="element__figure">
+                <img className="element__image" src={card.link} alt={card.name} />
+                <figcaption className="element__caption">
+                  <h2 className="element__heading">{card.name}</h2>
+                  <div className="element__like-container">
+                    <button className="element__like" type="button"></button>
+                    <div className="element__like-number">{card.likes.length}</div>
+                  </div>
+                </figcaption>
+              </figure>
+              <button className="element__delete" type="button"></button>
+            </li>
+          ))}
         </ul>
       </section>
     </main>
