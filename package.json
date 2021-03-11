@@ -1,5 +1,11 @@
 {
   "name": "mesto-react",
+  "description": "Веб-приложение на React, в котором можно делиться фотографиями интересных мест",
+  "author": {
+    "name": "Morev Denis",
+    "email": "morev.denis@gmail.com",
+    "url": "https://github.com/morev-denis"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
