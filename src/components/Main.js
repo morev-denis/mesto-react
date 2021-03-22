@@ -1,9 +1,19 @@
 import React from "react";
 import Card from "./Card.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
+import api from "../utils/api.js";
 
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
+
+  function handleCardLike(card) {
+    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
+      props.setCards((state) =>
+        state.map((c) => (c._id === card._id ? newCard : c))
+      );
+    });
+  }
 
   return (
     <main className="content">
@@ -36,7 +46,12 @@ function Main(props) {
       <section className="elements page__elements">
         <ul className="elements__grid">
           {props.cards.map((card) => (
-            <Card card={card} key={card._id} onCardClick={props.onCardClick} />
+            <Card
+              card={card}
+              key={card._id}
+              onCardClick={props.onCardClick}
+              onCardLike={handleCardLike}
+            />
           ))}
         </ul>
       </section>
