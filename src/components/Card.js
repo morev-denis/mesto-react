@@ -20,6 +20,10 @@ function Card(props) {
     props.onCardLike(props.card);
   }
 
+  function handleDeleteClick() {
+    props.onCardDelete(props.card);
+  }
+
   return (
     <li className="element">
       <figure className="element__figure">
@@ -43,7 +47,11 @@ function Card(props) {
           </div>
         </figcaption>
       </figure>
-      <button className={cardDeleteButtonClassName} type="button" />
+      <button
+        className={cardDeleteButtonClassName}
+        type="button"
+        onClick={handleDeleteClick}
+      />
     </li>
   );
 }
