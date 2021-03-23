@@ -20,6 +20,15 @@ function EditProfilePopup(props) {
     setDescription(e.target.value);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    props.onUpdateUser({
+      name,
+      about: description,
+    });
+  }
+
   return (
     <PopupWithForm
       name="profile-edit"
@@ -27,6 +36,7 @@ function EditProfilePopup(props) {
       buttonName="Сохранить"
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onSubmit={handleSubmit}
     >
       <label className="popup__field">
         <input

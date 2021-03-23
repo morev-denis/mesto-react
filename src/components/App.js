@@ -62,6 +62,13 @@ function App() {
     setSelectedCard(false);
   }
 
+  function handleUpdateUser({ name, about }) {
+    api.setUserInfo({ name, about }).then((data) => {
+      setCurrentUser({ name: data.name, about: about, avatar: data.avatar });
+      closeAllPopups();
+    });
+  }
+
   return (
     <div className="root">
       <CurrentUserContext.Provider value={currentUser}>
@@ -80,6 +87,7 @@ function App() {
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
         />
         <PopupWithForm
           name="avatar-update"
