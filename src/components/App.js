@@ -18,7 +18,11 @@ function App() {
     false
   );
   const [selectedCard, setSelectedCard] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState({});
+  const [currentUser, setCurrentUser] = React.useState({
+    name: "",
+    about: "",
+    avatar: "",
+  });
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
@@ -33,7 +37,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   function handleCardClick(card) {
     setSelectedCard(card);
