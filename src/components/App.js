@@ -3,10 +3,11 @@ import logo from "../images/header/__logo/header__logo.svg";
 import Header from "./Header.js";
 import Main from "./Main.js";
 import Footer from "./Footer.js";
-import PopupWithForm from "./PopupWithForm.js";
-import ImagePopup from "./ImagePopup.js";
-import api from "../utils/api.js";
+import PopupWithForm from "./PopupWithForm";
+import ImagePopup from "./ImagePopup";
+import api from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import EditProfilePopup from "./EditProfilePopup";
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(
@@ -72,40 +73,10 @@ function App() {
           />
           <Footer />
         </div>
-        <PopupWithForm
-          name="profile-edit"
-          title="Редактировать профиль"
-          buttonName="Сохранить"
+        <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
-        >
-          <label className="popup__field">
-            <input
-              id="profile-edit-input-name"
-              className="popup__input popup__input_field_name"
-              type="text"
-              placeholder="Имя"
-              name="profileName"
-              required
-              minLength="2"
-              maxLength="40"
-            />
-            <span className="profile-edit-input-name-error popup__input-error"></span>
-          </label>
-          <label className="popup__field">
-            <input
-              id="profile-edit-input-job"
-              className="popup__input popup__input_field_job"
-              type="text"
-              placeholder="О себе"
-              name="profileJob"
-              required
-              minLength="2"
-              maxLength="200"
-            />
-            <span className="profile-edit-input-job-error popup__input-error"></span>
-          </label>
-        </PopupWithForm>
+        />
         <PopupWithForm
           name="avatar-update"
           title="Обновить аватар"
