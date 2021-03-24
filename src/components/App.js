@@ -65,7 +65,22 @@ function App() {
 
   function handleUpdateUser({ name, about }) {
     api.setUserInfo({ name, about }).then((data) => {
-      setCurrentUser({ name: data.name, about: about, avatar: data.avatar });
+      setCurrentUser({
+        name: data.name,
+        about: data.about,
+        avatar: data.avatar,
+      });
+      closeAllPopups();
+    });
+  }
+
+  function handleUpdateAvatar({ avatar }) {
+    api.updateAvatar({ avatar }).then((data) => {
+      setCurrentUser({
+        name: data.name,
+        about: data.about,
+        avatar: data.avatar,
+      });
       closeAllPopups();
     });
   }
@@ -93,6 +108,7 @@ function App() {
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
         />
         <PopupWithForm
           name="card-add"
