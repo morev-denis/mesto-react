@@ -8,6 +8,7 @@ import ImagePopup from "./ImagePopup";
 import api from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
+import EditAvatarPopup from "./EditAvatarPopup";
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(
@@ -89,25 +90,10 @@ function App() {
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
-        <PopupWithForm
-          name="avatar-update"
-          title="Обновить аватар"
-          buttonName="Сохранить"
+        <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
-        >
-          <label className="popup__field">
-            <input
-              id="avatar-update-input-link"
-              className="popup__input popup__input_field_link"
-              type="url"
-              placeholder="Ссылка на картинку"
-              name="avatar"
-              required
-            />
-            <span className="avatar-update-input-link-error popup__input-error"></span>
-          </label>
-        </PopupWithForm>
+        />
         <PopupWithForm
           name="card-add"
           title="Новое место"
