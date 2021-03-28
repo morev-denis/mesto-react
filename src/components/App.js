@@ -157,9 +157,15 @@ function App() {
       });
   }
 
+  function handleEscClose(e) {
+    if (e.key === "Escape") {
+      closeAllPopups();
+    }
+  }
+
   return (
-    <div className="root">
-      <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="root" onKeyDown={handleEscClose} tabIndex={0}>
         <div className="page">
           <Header src={logo} />
           <Main
@@ -200,8 +206,8 @@ function App() {
           onConfirmDelete={handleConfirmDelete}
         />
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-      </CurrentUserContext.Provider>
-    </div>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
