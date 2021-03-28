@@ -163,9 +163,20 @@ function App() {
     }
   }
 
+  function handleOverlayClose(e) {
+    if (e.target.matches(".popup")) {
+      closeAllPopups();
+    }
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="root" onKeyDown={handleEscClose} tabIndex={0}>
+      <div
+        className="root"
+        onKeyDown={handleEscClose}
+        tabIndex={0}
+        onClick={handleOverlayClose}
+      >
         <div className="page">
           <Header src={logo} />
           <Main
