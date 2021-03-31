@@ -1,5 +1,6 @@
 {
   "name": "mesto-react",
+  "homepage": "https://morev-denis.github.io/mesto-react/",
   "description": "Веб-приложение на React, в котором можно делиться фотографиями интересных мест",
   "author": {
     "name": "Morev Denis",
